@@ -12,10 +12,39 @@ function Wrapper() {
     const parents: { [key: string]: string } = {
         a: "start",
         b: "start",
-        in: "None",
+        fin: "None",
     };
     const processed = [];
 
-    console.log(345);
+    let node = findLowestCostNode(costs);
+    while (node !== "none") {
+        let cost: number = costs[node];
+        let neighbours = graph[node];
+        Object.keys(neighbours).map((n) => {
+            let newCost = cost + neighbours[n];
+            if (newCost < costs[n]) {
+                costs[n] = newCost;
+                parents[n] = node;
+            }
+        });
+        processed.push(node);
+        node = findLowestCostNode(costs);
+    }
+
+    console.log(costs);
+
+    function findLowestCostNode(costs) {
+        let lowestCost: number = Infinity;
+        let lowestCostNode: string = "none";
+        Object.entries(costs).map((item: {}) => {
+            const isProcessed = processed.filter((pr) => pr == item[0]).length > 0 ? true : false;
+            if (isProcessed) return;
+            if (item[1] < lowestCost) {
+                lowestCost = item[1];
+                lowestCostNode = item[0];
+            }
+        });
+        return lowestCostNode;
+    }
 }
 export default Wrapper();
