@@ -1,0 +1,25 @@
+{
+  "name": "algorythms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec npx ts-node ./ts/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teriyaki-89/algorythms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teriyaki-89/algorythms/issues"
+  },
+  "homepage": "https://github.com/teriyaki-89/algorythms#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.25",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  }
+}
